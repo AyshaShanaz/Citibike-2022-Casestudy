@@ -42,6 +42,7 @@ Seasonality drives higher ridership and broader utilization.
 
 
 Limitations
+
 Station relocations/closures complicate comparisons.
 Weather granularity limits causal interpretation.
 Data quality issues require continuous cleaning.
