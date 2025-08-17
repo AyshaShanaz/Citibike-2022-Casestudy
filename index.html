@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Citibike 2022 — Case Study</title>
+  <meta name="description" content="Citibike 2022 case study — interactive Tableau visualization with responsive embed.">
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: #ffffff;
+      color: #111827;
+      line-height: 1.5;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+    h1 { font-size: 1.75rem; margin: 0 0 8px 0; }
+    p.lead { color: #4b5563; margin: 0 0 16px 0; }
+    .viz-wrap { position: relative; width: 100%; margin: 16px auto 8px auto; }
+    .note { font-size: 0.9rem; color: #6b7280; }
+    a { color: #2563eb; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .footer { margin-top: 24px; font-size: 0.9rem; color: #6b7280; }
+    .tableauPlaceholder img { max-width: 100%; height: auto; display: block; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Citibike 2022 — Case Study</h1>
+    <p class="lead">Interactive analysis of NYC Citibike 2022 usage patterns, station flows, and rider behavior.</p>
+
+    <div class="viz-wrap">
+      <div class="tableauPlaceholder" id="vizCitibike2022" style="position: relative;">
+        <noscript>
+          <a href="#">
+            <img alt="Citibike 2022 static preview"
+                 src="https://public.tableau.com/static/images/Pl/Placeholder_1/Sheet1/1_rss.png">
+          </a>
+        </noscript>
+        <object class="tableauViz" style="display:none;">
+          <param name="host_url" value="https://public.tableau.com/">
+          <param name="embed_code_version" value="3">
+          <!-- Replace the name value below with your exact Tableau Public view path -->
+          <!-- Example if your view URL is https://public.tableau.com/views/Citibike_2022/Overview -->
+          <!-- then set: value="views/Citibike_2022/Overview" -->
+          <param name="name" value="views/Citibike_Enhanced_Case_Study/Overview">
+          <param name="tabs" value="no">
+          <param name="toolbar" value="yes">
+          <param name="animate_transition" value="yes">
+          <param name="display_static_image" value="yes">
+          <param name="display_spinner" value="yes">
+          <param name="display_overlay" value="yes">
+          <param name="display_count" value="no">
+          <param name="language" value="en-US">
+        </object>
+      </div>
+      <p class="note">Tip: Confirm the exact Tableau view path by clicking Share on your Tableau Public viz and copying the name parameter from the embed code.</p>
+    </div>
+
+    <div class="footer">
+      Built with Tableau • Help: https://julius.ai/docs
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    (function initTableau() {
+      var container = document.getElementById("vizCitibike2022");
+      if (!container) { return; }
+      var vizObj = container.getElementsByTagName("object")[0];
+
+      // Load Tableau JS API
+      var s = document.createElement("script");
+      s.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
+      s.onload = function() { setTimeout(resizeViz, 0); };
+      document.body.appendChild(s);
+
+      function resizeViz() {
+        try {
+          var width = container.offsetWidth;
+          // Default 16:9 height; change multiplier for different aspect ratios
+          var height = Math.round(width * 0.5625);
+          if (height > 900) { height = 900; }
+          vizObj.style.width = "100%";
+          vizObj.style.height = height + "px";
+          vizObj.style.display = "block";
+        } catch (e) {}
+      }
+
+      var resizeTimeout = null;
+      window.addEventListener("resize", function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(resizeViz, 150);
+      });
+    })();
+  </script>
+</body>
+</html>
